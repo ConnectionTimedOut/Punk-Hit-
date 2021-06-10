@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8fea3fae96ed844aa348a09c279a3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipScript: {fileID: 0}
+  waveSpawnerDX: {fileID: 0}
+  waveSpawnerSX: {fileID: 0}
   soundWaveNormal: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveHeavy: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveLight: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
@@ -103,6 +106,7 @@ MonoBehaviour:
   soundWaveHeavyVfx: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveLightVfx: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveSpecialVfx: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
+  cooldownTime: 0.8
 --- !u!1 &2343469774845804973
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8fea3fae96ed844aa348a09c279a3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipScript: {fileID: 0}
+  waveSpawnerDX: {fileID: 0}
+  waveSpawnerSX: {fileID: 0}
   soundWaveNormal: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveHeavy: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveLight: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
@@ -206,6 +213,7 @@ MonoBehaviour:
   soundWaveHeavyVfx: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveLightVfx: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
   soundWaveSpecialVfx: {fileID: 583483976127380302, guid: 1a9c378745ca62a40abd965b3479946a, type: 3}
+  cooldownTime: 0.8
 --- !u!1 &2343469776453614355
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,8 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbProtagonista: {fileID: 2343469776453614352}
-  speed: 6
-  speedDimezzata: 1.5
+  speed: 30
+  speedDimezzata: 1.8
 --- !u!114 &2343469776453614346
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class GenerateWaves : MonoBehaviour {
 
+    //Flipped Script
+    public Flip flipScript;
+    bool flipped;
+
+    //WaveSpawner
+    public GameObject waveSpawnerDX;
+    public GameObject waveSpawnerSX;
+
+    //Wave
     public GameObject soundWaveNormal;
     public GameObject soundWaveHeavy;
     public GameObject soundWaveLight;
@@ -19,17 +28,14 @@ public class GenerateWaves : MonoBehaviour {
     private bool canShoot = true;
     
     private VariableManager _varMgr;
-    void Start()
-    {
+    void Start() {
         _varMgr = FindObjectOfType<VariableManager>();
     }
 
-    void Update()
-    {
+    void Update() {
         GameObject soundWave;
         GameObject soundWaveVfx;
-        switch (_varMgr.GetSelectedGuitar())
-        {
+        switch (_varMgr.GetSelectedGuitar()) {
             case GuitarTypes.Leggera:
                 soundWave = soundWaveLight;
                 soundWaveVfx = soundWaveLightVfx;
@@ -48,17 +54,21 @@ public class GenerateWaves : MonoBehaviour {
                 break;
         }
         
-        if (Input.GetButtonDown("Fire1") && canShoot)
-        {
+        if (Input.GetButtonDown("Fire1") && canShoot) {
             canShoot = false;
-            GameObject ondaSonora = Instantiate(soundWave, transform.position, transform.rotation);
-            GameObject ondaSonoraVfx = Instantiate(soundWaveVfx, transform.position, transform.rotation);
+            flipped = flipScript.isFlipped;
+            if (!flipped) {
+                GameObject ondaSonora = Instantiate(soundWave, waveSpawnerDX.transform.position, waveSpawnerDX.transform.rotation);
+                GameObject ondaSonoraVfx = Instantiate(soundWaveVfx, waveSpawnerDX.transform.position, waveSpawnerDX.transform.rotation);
+            } else if (flipped) {
+                GameObject ondaSonora = Instantiate(soundWave, waveSpawnerSX.transform.position, waveSpawnerSX.transform.rotation);
+                GameObject ondaSonoraVfx = Instantiate(soundWaveVfx, waveSpawnerSX.transform.position, waveSpawnerSX.transform.rotation);
+            }
             Invoke("ReactivateGuitar", cooldownTime);
         }
     }
 
-    private void ReactivateGuitar()
-    {
+    private void ReactivateGuitar() {
         canShoot = true;
     }
 }

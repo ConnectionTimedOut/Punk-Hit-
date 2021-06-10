@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Variables))]
-public class VariableManager : MonoBehaviour
-{
+public class VariableManager : MonoBehaviour {
     private Variables sceneVariables;
 
     [SerializeField]
@@ -17,8 +16,7 @@ public class VariableManager : MonoBehaviour
 
     private int guitarIndex = 0;
     
-    private void Start()
-    {
+    private void Start() {
         sceneVariables = GetComponent<Variables>();
         // Tramite sceneVariables.declarations ho accesso alle variabili di Visual Scripting
         
@@ -27,20 +25,17 @@ public class VariableManager : MonoBehaviour
 
     //Punti
 
-    public int GetPoints()
-    {
+    public int GetPoints() {
         return sceneVariables.declarations.Get<int>("punti");
     }
 
-    public void SetPoints(int points)
-    {
+    public void SetPoints(int points) {
         sceneVariables.declarations.Set("punti", points);
         uiManager.UpdatePoints(GetPoints());
 
     }
 
-    public void AddPoints(int points)
-    {
+    public void AddPoints(int points) {
         SetPoints(GetPoints() + points);
     }
 
@@ -61,35 +56,29 @@ public class VariableManager : MonoBehaviour
 
     //Fan
 
-    public bool[] GetFanArray()
-    {
+    public bool[] GetFanArray() {
         return sceneVariables.declarations.Get<List<bool>>("listaFan").ToArray();
     }
     
-    public bool GetFan(int index)
-    {
+    public bool GetFan(int index) {
         return sceneVariables.declarations.Get<List<bool>>("listaFan")[index];
     }
 
-    public void SetFan(int index, bool value = true)
-    {
+    public void SetFan(int index, bool value = true) {
         sceneVariables.declarations.Get<List<bool>>("listaFan")[index] = value;
     }
     
     //Chitarre
 
-    public void AddGuitar(GuitarTypes type)
-    {
+    public void AddGuitar(GuitarTypes type) {
         guitarInventory.Add(type);
     }
 
-    public GuitarTypes GetSelectedGuitar()
-    {
+    public GuitarTypes GetSelectedGuitar() {
         return guitarInventory[guitarIndex];
     }
 
-    public GuitarTypes SelectNextGuitar()
-    {
+    public GuitarTypes SelectNextGuitar() {
         guitarIndex++;
         if (guitarIndex >= guitarInventory.Count) guitarIndex = 0;
         return GetSelectedGuitar();

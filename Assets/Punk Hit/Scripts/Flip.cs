@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class Flip : MonoBehaviour {
 
-    public GameObject waveGenL;
-    public GameObject waveGenR;
     public GameObject skins;
     public bool isFlipped = true;
 
 
-    private void Start() {
-        if (waveGenL) {
-            waveGenL.SetActive(false);
-        }
-    }
     void Update() {
         if (Input.GetAxis("Horizontal") > 0 && isFlipped) {
             isFlipped = false;
-
-            waveGenL.SetActive(false); //cambia spawner delle onde
-            waveGenR.SetActive(true);
 
             
             Vector3 v = skins.transform.rotation.eulerAngles; //speen
@@ -30,9 +20,6 @@ public class Flip : MonoBehaviour {
             Debug.Log("Flip!");
         } else if (Input.GetAxis("Horizontal") < 0 && isFlipped == false) {
             isFlipped = true;
-
-            waveGenR.SetActive(false);
-            waveGenL.SetActive(true);
 
             Vector3 v = skins.transform.rotation.eulerAngles; //speen
             v.y = 180;

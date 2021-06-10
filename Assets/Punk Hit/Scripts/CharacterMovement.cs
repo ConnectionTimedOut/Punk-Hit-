@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour {
     }
 
 
-    void Update() {
+    void FixedUpdate() {
         orientation = Input.GetAxisRaw("Horizontal");
         //vedi riga 12
 //        if (!gameObject.GetComponent<GroundCheck>().isGrounded) return;
