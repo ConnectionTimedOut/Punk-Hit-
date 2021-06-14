@@ -20,7 +20,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - VFX
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: MomoyaBase
     uniqueID: 2416674745
+    locked: 0
+  - name: VFX
+    uniqueID: 4117200315
     locked: 0

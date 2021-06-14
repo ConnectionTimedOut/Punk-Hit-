@@ -15,7 +15,7 @@ public class GroundCheck : MonoBehaviour {
             isGrounded = true;
         } else if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0), -Vector3.up, distanceToGround + 0.1f)) {
             isGrounded = true;
-        } else if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0), -Vector3.up, distanceToGround + 0.1f)) {
+        } else if (Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0), -Vector3.up, distanceToGround + 0.1f)) {
             isGrounded = true;
         } else {
             isGrounded = false;

@@ -18,11 +18,8 @@ public class WaveSystem : MonoBehaviour {
 
     // Probabilmente dovrò spostare tutto in script diversi da mettere ai singoli GameObject.
     private void OnCollisionEnter(Collision other) {
-        /**if (other.gameObject.CompareTag("Spingibile")) {
-            other.attachedRigidbody.AddForce(transform.right * pushSpeed, ForceMode.Impulse);
-        } else**/ if (other.gameObject.CompareTag("Distruggibile")) {
-            other.gameObject.SetActive(false);
-
+        if (other.gameObject.GetComponent<DestroyableBase>() != null) {
+            other.gameObject.GetComponent<DestroyableBase>().DestroyItem();
         }
         Destroy(gameObject);
     }

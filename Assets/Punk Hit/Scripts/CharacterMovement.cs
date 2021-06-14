@@ -8,24 +8,28 @@ public class CharacterMovement : MonoBehaviour {
     
     public float speed;
     private float orientation;
-    //Roba che sto provando, al momento la lascio così, probabilmente da rimuovere
     private Vector3 speedCalc;
     public float speedDimezzata;
 
-    private GroundCheck _check;
+    private GroundCheck _gCheck;
+    //private DisableWallMovement _wCheck;
     void Start() {
         rbProtagonista = GetComponent<Rigidbody>();
-        _check = gameObject.GetComponent<GroundCheck>();
+        _gCheck = gameObject.GetComponent<GroundCheck>();
+   //     _wCheck = gameObject.GetComponent<DisableWallMovement>();
     }
 
 
     void FixedUpdate() {
+
+
         orientation = Input.GetAxisRaw("Horizontal");
-        //vedi riga 12
-//        if (!gameObject.GetComponent<GroundCheck>().isGrounded) return;
         speedCalc = transform.right * speed * orientation;
-        if (!_check.isGrounded) speedCalc /= speedDimezzata;
+
+        if (!_gCheck.isGrounded) speedCalc /= speedDimezzata;
+
+  //      if (_wCheck.touchesRWall) Mathf.Clamp(orientation, -1, 0);
+    //    if (_wCheck.touchesLWall) Mathf.Clamp(orientation, 0, 1);
         rbProtagonista.AddForce(speedCalc, ForceMode.Force);
-        
     }
 }
